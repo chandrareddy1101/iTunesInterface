@@ -1,24 +1,155 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iYo-a7-HDJ">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue-Bold</string>
+        </array>
+    </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Music Library-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="HomeVC" customModule="iTunesInterface" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" placeholder="search for music" translatesAutoresizingMaskIntoConstraints="NO" id="xof-SZ-yNv">
+                                <rect key="frame" x="0.0" y="64" width="375" height="56"/>
+                                <color key="barTintColor" red="0.1224730983" green="0.3899359107" blue="0.60431116819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="r84-d5-yl2">
+                                <rect key="frame" x="0.0" y="627" width="375" height="40"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© 2017 Vamsi. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="Mh1-xy-SgO">
+                                        <rect key="frame" x="75" y="11.5" width="225" height="18"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.1224730983" green="0.3899359107" blue="0.60431116819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="Mh1-xy-SgO" firstAttribute="width" secondItem="r84-d5-yl2" secondAttribute="width" multiplier="0.6" id="ATq-HN-V7r"/>
+                                    <constraint firstItem="Mh1-xy-SgO" firstAttribute="centerY" secondItem="r84-d5-yl2" secondAttribute="centerY" id="EYK-qy-uPo"/>
+                                    <constraint firstItem="Mh1-xy-SgO" firstAttribute="height" secondItem="r84-d5-yl2" secondAttribute="height" multiplier="0.45" id="YyN-Oi-jfy"/>
+                                    <constraint firstItem="Mh1-xy-SgO" firstAttribute="centerX" secondItem="r84-d5-yl2" secondAttribute="centerX" id="p2x-4U-Gnf"/>
+                                </constraints>
+                            </view>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="d2c-r5-Vds">
+                                <rect key="frame" x="169" y="347" width="37" height="37"/>
+                            </activityIndicatorView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ktk-OK-KLO">
+                                <rect key="frame" x="4.5" y="130" width="367.5" height="497"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="n0g-fO-bRU">
+                                    <size key="itemSize" width="200" height="134"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="albumCell" id="Sbt-hX-L3m" customClass="AlbumCell" customModule="iTunesInterface" customModuleProvider="target">
+                                        <rect key="frame" x="84" y="0.0" width="200" height="134"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="200" height="134"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zgp-4y-5Rb">
+                                                    <rect key="frame" x="0.0" y="0.0" width="200" height="134"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="Nez-Ul-BrW">
+                                                    <rect key="frame" x="0.5" y="107" width="200" height="27"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <color key="backgroundColor" red="0.1224730983" green="0.3899359107" blue="0.60431116819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="Nez-Ul-BrW" firstAttribute="centerX" secondItem="Sbt-hX-L3m" secondAttribute="centerX" id="TmR-VR-5sl"/>
+                                            <constraint firstItem="Zgp-4y-5Rb" firstAttribute="leading" secondItem="Sbt-hX-L3m" secondAttribute="leadingMargin" id="Y7D-fw-j1T"/>
+                                            <constraint firstItem="Nez-Ul-BrW" firstAttribute="height" secondItem="Zgp-4y-5Rb" secondAttribute="height" multiplier="0.2" id="fDi-1N-Fde"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="Zgp-4y-5Rb" secondAttribute="trailing" id="fl4-V7-tno"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="Zgp-4y-5Rb" secondAttribute="bottom" id="lad-Aj-rqs"/>
+                                            <constraint firstItem="Nez-Ul-BrW" firstAttribute="width" secondItem="Zgp-4y-5Rb" secondAttribute="width" id="rZb-Dg-Kq9"/>
+                                            <constraint firstItem="Zgp-4y-5Rb" firstAttribute="top" secondItem="Sbt-hX-L3m" secondAttribute="topMargin" id="t5M-Wg-TAW"/>
+                                            <constraint firstItem="Nez-Ul-BrW" firstAttribute="bottom" secondItem="Zgp-4y-5Rb" secondAttribute="bottom" id="xSz-B7-rdP"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="albumCoverImgView" destination="Zgp-4y-5Rb" id="g72-iQ-ySM"/>
+                                            <outlet property="albumTitleLbl" destination="Nez-Ul-BrW" id="Cqu-Sh-jOQ"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="r84-d5-yl2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3Zg-zS-eOD"/>
+                            <constraint firstItem="xof-SZ-yNv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="553-An-Lsq"/>
+                            <constraint firstItem="xof-SZ-yNv" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="6kM-HK-ytZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="r84-d5-yl2" secondAttribute="bottom" id="EXr-Ix-jpN"/>
+                            <constraint firstItem="d2c-r5-Vds" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="GsN-18-gdO"/>
+                            <constraint firstItem="r84-d5-yl2" firstAttribute="top" secondItem="ktk-OK-KLO" secondAttribute="bottom" id="PdN-cl-C7l"/>
+                            <constraint firstItem="ktk-OK-KLO" firstAttribute="top" secondItem="xof-SZ-yNv" secondAttribute="bottom" constant="10" id="SFz-XE-OBf"/>
+                            <constraint firstItem="r84-d5-yl2" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.06" id="aH8-mx-WhO"/>
+                            <constraint firstItem="d2c-r5-Vds" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="f1k-K8-W7f"/>
+                            <constraint firstItem="r84-d5-yl2" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="gHG-m5-mWF"/>
+                            <constraint firstItem="ktk-OK-KLO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gpQ-f7-CGn"/>
+                            <constraint firstItem="ktk-OK-KLO" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.98" id="oqM-pP-O2p"/>
+                            <constraint firstItem="xof-SZ-yNv" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="vcz-XS-WWt"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Music Library" id="ftD-Mk-3dt"/>
+                    <connections>
+                        <outlet property="activitySpinner" destination="d2c-r5-Vds" id="R9d-8s-Md8"/>
+                        <outlet property="collectionView" destination="ktk-OK-KLO" id="Dnn-ih-0si"/>
+                        <outlet property="searchBarTxt" destination="xof-SZ-yNv" id="F5S-4T-faw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="372" y="32.833583208395808"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="evK-CY-uhd">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="iYo-a7-HDJ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="BCM-aH-Rm8">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="m4w-Tp-G4x"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="L8N-LS-whg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-394" y="33"/>
         </scene>
     </scenes>
 </document>
